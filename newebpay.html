@@ -1,0 +1,16 @@
+<html>
+
+<body>
+    <form id="newebpay" method="post" action="https://ccore.newebpay.com/MPG/mpg_gateway">
+        <input type="hidden" name="MerchantID" value="MS357423624"/>
+        <input type="hidden" name="TradeInfo" value="a083e5b0f00fc425a73cc8cc0796b2d216d23e3bc63c6bf0680592429ccd39739045e7f1a6ebf615808a3901909a055ea969dafedcf7dff2e639d0f00cc2168709d3901a9c42be89772799e14a29117fd1e7012e6ef9502d9abbe454d2d8e311c6cae410f631cf8617edefea51d214a694c3c40178f5eb3bcc5f51e5644b7923307e4487df6934ef2ce82870a2e4b4673cae7b19e9ffd017b3978bbc80b2ca65b06ec8c5a6c70eb87fbe36cb13b1308820f668e395b1da4082f1cb7c44a79f301e8317dcf4b6f28c53ddf40cbe3695a788948dcdd7bd7184c59cd9e58f658ab2c286f884270b772f6d15e6babc09cb53"/>
+        <input type="hidden" name="TradeSha" value="3C74B02BEFA1F5EF13E88B82DF12F522E86361E522102A82747BC36CFA1F9D95"/>
+        <input type="hidden" name="Version" value="2.3"/>
+        <noscript><button type="submit">Continue to Pay</button></noscript>
+    </form>
+    <script>
+        document.getElementById("newebpay").submit();
+    </script>
+</body>
+
+</html>
