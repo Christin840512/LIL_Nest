@@ -2,7 +2,7 @@ from enum import Enum
 
 class ReservationStatus(str, Enum):
     EDITING = "editing"
-    INCOMPLETE = "incomplete"
+    EXPIRED = "expired"
     UNPAID = "unpaid"
     PAID_PARTIAL = "paid_partial"
     PAID_ALL = "paid_all"

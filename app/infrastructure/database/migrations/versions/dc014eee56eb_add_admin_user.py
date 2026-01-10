@@ -9,7 +9,7 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
-from app.infrastructure.external.security.password_hasher import _pwd_ctx
+from infrastructure.external.security.password_hasher import _pwd_ctx
 from datetime import datetime
 
 

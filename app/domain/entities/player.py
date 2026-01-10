@@ -5,3 +5,4 @@ from dataclasses import dataclass
 class Player:
     id: int
     name: str
+    created_at: str

@@ -1,21 +1,23 @@
 from __future__ import annotations
 
 from datetime import datetime
-from sqlalchemy import String, Integer, DateTime, Enum, Index, JSON
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import String, Integer, DateTime, Enum, Index, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.dialects.postgresql import ARRAY
 
-from infrastructure.database.models.base import Base
-from domain.entities.payment import Payment, PaymentProvider, PaymentStatus
+from .base import Base
+from domain.entities.payment import PaymentProvider, PaymentStatus
+from .player import Player
 
 
 class PaymentModel(Base):
     __tablename__ = "payments"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    
-    reservation_id: Mapped[str] = mapped_column(String(64), index=True)
-    player_id: Mapped[list[str]] = mapped_column(JSON, index=True)
-    
+
+    reservation_id: Mapped[int] = mapped_column(ForeignKey("reservations.id", ondelete="CASCADE"), index=True)
+    players: Mapped[list["Player"]] = relationship(back_populates="player_id", cascade="all, delete-orphan")
+
     payer_name: Mapped[str] = mapped_column(String(100))
     payer_email: Mapped[str] = mapped_column(String(100))
     payer_phone: Mapped[str] = mapped_column(String(20))
